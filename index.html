@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohin Sandhu - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Dark background with a subtle gradient */
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #e0e0e0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #2a2a4a;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #5a5a8a;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7a7ab0;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section fade-in animation */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover effects for cards and buttons */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+    <!-- Header/Navigation -->
+    <header class="bg-gray-900 bg-opacity-80 shadow-lg fixed w-full z-50 py-4 px-6 md:px-12 backdrop-blur-sm">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-purple-400 hover:text-purple-300 transition duration-300 ease-in-out">Rohin Sandhu</a>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#about" class="text-lg hover:text-purple-400 transition duration-300 ease-in-out">About</a></li>
+                <li><a href="#skills" class="text-lg hover:text-purple-400 transition duration-300 ease-in-out">Skills</a></li>
+                <li><a href="#projects" class="text-lg hover:text-purple-400 transition duration-300 ease-in-out">Projects</a></li>
+                <li><a href="#resume" class="text-lg hover:text-purple-400 transition duration-300 ease-in-out">Resume</a></li>
+                <li><a href="#contact" class="text-lg hover:text-purple-400 transition duration-300 ease-in-out">Contact</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-200 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-40 hidden flex-col items-center justify-center space-y-8 md:hidden">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-200 focus:outline-none">
+            <i class="fas fa-times text-3xl"></i>
+        </button>
+        <ul class="text-center text-3xl space-y-6">
+            <li><a href="#about" class="block py-2 hover:text-purple-400 transition duration-300 ease-in-out mobile-menu-link">About</a></li>
+            <li><a href="#skills" class="block py-2 hover:text-purple-400 transition duration-300 ease-in-out mobile-menu-link">Skills</a></li>
+            <li><a href="#projects" class="block py-2 hover:text-purple-400 transition duration-300 ease-in-out mobile-menu-link">Projects</a></li>
+            <li><a href="#resume" class="block py-2 hover:text-purple-400 transition duration-300 ease-in-out mobile-menu-link">Resume</a></li>
+            <li><a href="#contact" class="block py-2 hover:text-purple-400 transition duration-300 ease-in-out mobile-menu-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <main class="pt-20">
+        <!-- Hero/About Me Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center py-16 px-6 md:px-12 section-hidden">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-4 animate-fade-in-down">
+                    Hi, I'm <span class="text-purple-400">Rohin Sandhu</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-up">
+                    A passionate developer building engaging web experiences.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#projects" class="bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition duration-300 ease-in-out btn-hover shadow-lg">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="bg-gray-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-600 transition duration-300 ease-in-out btn-hover shadow-lg">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 px-6 md:px-12 bg-gray-800 bg-opacity-60 section-hidden">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-4xl font-bold text-center text-purple-400 mb-12">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                    <div class="md:w-1/3 mb-8 md:mb-0">
+                        <img src="profile.jpeg" alt="Rohin Sandhu" class="rounded-full w-64 h-64 object-cover mx-auto border-4 border-purple-500 shadow-xl">
+                    </div>
+                    <div class="md:w-2/3 text-lg leading-relaxed text-gray-300">
+                        <p class="mb-4">
+                            Hello! I'm Rohin Sandhu, a dedicated and enthusiastic developer with a passion for creating impactful and user-friendly applications. My journey in technology has equipped me with a strong foundation in various programming languages and frameworks.
+                        </p>
+                        <p class="mb-4">
+                            I thrive on solving complex problems and am always eager to learn new technologies and best practices. My goal is to build solutions that are not only functional but also provide an excellent user experience.
+                        </p>
+                        <p>
+                            Outside of coding, I enjoy exploring new ideas and continuously expanding my knowledge base. I believe in the power of collaboration and am always open to connecting with fellow developers and innovators.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 px-6 md:px-12 section-hidden">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-4xl font-bold text-center text-purple-400 mb-12">My Skills</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Skill Card 1: Backend Development -->
+                    <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl text-center card-hover transition duration-300 ease-in-out">
+                        <i class="fas fa-server text-6xl text-green-400 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Backend Development</h3>
+                        <p class="text-gray-300">Python, REST APIs</p>
+                    </div>
+                    <!-- Skill Card 2: Cloud & Databases -->
+                    <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl text-center card-hover transition duration-300 ease-in-out">
+                        <i class="fas fa-cloud text-6xl text-orange-400 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Cloud & Databases</h3>
+                        <p class="text-gray-300">AWS S3, SQL, Redis</p>
+                    </div>
+                    <!-- Skill Card 3: Version Control -->
+                    <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl text-center card-hover transition duration-300 ease-in-out">
+                        <i class="fas fa-code-branch text-6xl text-purple-400 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Version Control</h3>
+                        <p class="text-gray-300">Git, GitHub</p>
+                    </div>
+                    <!-- Skill Card 4: Frameworks & Libraries -->
+                    <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl text-center card-hover transition duration-300 ease-in-out">
+                        <i class="fas fa-cogs text-6xl text-blue-400 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Frameworks & Libraries</h3>
+                        <p class="text-gray-300">FastAPI, Django, Flask, NumPy, Pandas, Scikit-learn (SkLearn), Matplotlib</p>
+                    </div>
+                    <!-- Skill Card 5: GenAI Tech -->
+                    <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl text-center card-hover transition duration-300 ease-in-out">
+                        <i class="fas fa-brain text-6xl text-red-400 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-2">GenAI Tech</h3>
+                        <p class="text-gray-300">RAG, Chain of Thoughts, Vector DB, Tokenization, OpenAI, Anthropic AI & Llama</p>
+                    </div>
+                    <!-- Skill Card 6: Tools & Others -->
+                    <div class="bg-gray-800 bg-opacity-60 p-8 rounded-lg shadow-xl text-center card-hover transition duration-300 ease-in-out">
+                        <i class="fas fa-tools text-6xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Tools & Others</h3>
+                        <p class="text-gray-300">VS Code, PyCharm, Jupyter, Atom, CursorAI, Docker</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 px-6 md:px-12 bg-gray-800 bg-opacity-60 section-hidden">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-4xl font-bold text-center text-purple-400 mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <!-- Project Card 1: PredictiFire -->
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-xl card-hover transition duration-300 ease-in-out section-hidden">
+                        <img src="predict.png" alt="PredictiFire Project" class="rounded-md mb-4">
+                        <h3 class="text-2xl font-semibold text-white mb-2">PredictiFire</h3>
+                        <p class="text-gray-300 mb-2">A machine learning project focused on predictive analytics, demonstrating data processing, model training, and prediction capabilities. This project highlights skills in building data-driven solutions.</p>
+                        <p class="text-gray-400 text-sm mb-4"><strong>Technologies:</strong> Python, Scikit-learn, Pandas, NumPy, FastAPI</p>
+                        <div class="flex space-x-4">
+                            <!-- You can add a live demo link here if available -->
+                            <!-- <a href="#" target="_blank" class="text-purple-400 hover:text-purple-300 transition duration-300 ease-in-out"><i class="fas fa-link mr-2"></i>Live Demo</a> -->
+                            <a href="https://github.com/sandhurohan/PredictiFire" target="_blank" class="text-purple-400 hover:text-purple-300 transition duration-300 ease-in-out"><i class="fab fa-github mr-2"></i>GitHub Repo</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2: Exception-Handler-And-Mailing-System -->
+                    <div class="bg-gray-900 p-6 rounded-lg shadow-xl card-hover transition duration-300 ease-in-out section-hidden">
+                        <img src="expection1.webp" alt="Exception Handler Project" class="rounded-md mb-4">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Exception Handler & Mailing System</h3>
+                        <p class="text-gray-300 mb-2">A robust system designed to capture and handle exceptions in applications, automatically sending detailed error reports via email. This enhances application stability and simplifies debugging processes.</p>
+                        <p class="text-gray-400 text-sm mb-4"><strong>Technologies:</strong> Python, SMTP, Logging</p>
+                        <div class="flex space-x-4">
+                            <!-- You can add a live demo link here if available -->
+                            <!-- <a href="#" target="_blank" class="text-purple-400 hover:text-purple-300 transition duration-300 ease-in-out"><i class="fas fa-link mr-2"></i>Live Demo</a> -->
+                            <a href="https://github.com/sandhurohan/Exception-Handler-And-Mailing-System" target="_blank" class="text-purple-400 hover:text-purple-300 transition duration-300 ease-in-out"><i class="fab fa-github mr-2"></i>GitHub Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume/Experience Section -->
+        <section id="resume" class="py-16 px-6 md:px-12 section-hidden">
+            <div class="container mx-auto max-w-5xl text-center">
+                <h2 class="text-4xl font-bold text-purple-400 mb-12">My Resume</h2>
+                <p class="text-lg text-gray-300 mb-8">
+                    You can view or download my detailed resume by clicking the button below.
+                </p>
+                <a href="https://drive.google.com/file/d/1WbTXXbOL2WJx7Ia5hLmQL8lRQb6BSIXw/view" target="_blank" class="bg-purple-600 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-purple-700 transition duration-300 ease-in-out btn-hover shadow-lg">
+                    <i class="fas fa-file-alt mr-3"></i>View Resume
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-6 md:px-12 bg-gray-800 bg-opacity-60 section-hidden">
+            <div class="container mx-auto max-w-5xl text-center">
+                <h2 class="text-4xl font-bold text-purple-400 mb-12">Get In Touch</h2>
+                <p class="text-lg text-gray-300 mb-8">
+                    I'm always open to new opportunities and collaborations. Feel free to reach out!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8 text-xl">
+                    <a href="mailto:sandhurohan123@gmail.com" class="flex items-center text-gray-300 hover:text-purple-400 transition duration-300 ease-in-out">
+                        <i class="fas fa-envelope mr-3 text-2xl"></i>sandhurohan123@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/rohin-sandhu" target="_blank" class="flex items-center text-gray-300 hover:text-purple-400 transition duration-300 ease-in-out">
+                        <i class="fab fa-linkedin mr-3 text-2xl"></i>LinkedIn
+                    </a>
+                    <a href="https://github.com/sandhurohan" target="_blank" class="flex items-center text-gray-300 hover:text-purple-400 transition duration-300 ease-in-out">
+                        <i class="fab fa-github mr-3 text-2xl"></i>GitHub
+                    </a>
+                </div>
+                <!-- Optional: Contact Form (uncomment and customize if needed) -->
+                <!--
+                <div class="mt-12 max-w-lg mx-auto bg-gray-900 p-8 rounded-lg shadow-xl">
+                    <form>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Your Name" class="w-full p-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" placeholder="Your Email" class="w-full p-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-purple-500">
+                        </div>
+                        <div class="mb-4">
+                            <textarea placeholder="Your Message" rows="5" class="w-full p-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:outline-none focus:border-purple-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition duration-300 ease-in-out btn-hover shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 bg-opacity-80 py-8 px-6 md:px-12 text-center text-gray-400">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Rohin Sandhu. All rights reserved.</p>
+            <p class="mt-2">Built with <i class="fas fa-heart text-red-500"></i> and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('flex')) {
+                    mobileMenu.classList.remove('flex');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const sections = document.querySelectorAll('.section-hidden');
+
+        const observerOptions = {
+            root: null, /* viewport */
+            rootMargin: '0px',
+            threshold: 0.1 /* 10% of the section must be visible */
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                    entry.target.classList.remove('section-hidden');
+                    // Removed observer.unobserve(entry.target) to allow re-triggering on scroll
+                } else {
+                    // Re-add 'section-hidden' when a section leaves the viewport
+                    entry.target.classList.remove('section-visible');
+                    entry.target.classList.add('section-hidden');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('flex');
+            mobileMenu.classList.add('hidden');
+        });
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Initial check for hero section visibility on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.getElementById('hero');
+            heroSection.classList.add('section-visible'); // Make hero visible immediately
+            heroSection.classList.remove('section-hidden');
+        });
+    </script>
+</body>
+</html>
